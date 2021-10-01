@@ -1,0 +1,12 @@
+<p>
+  <strong>Başlık:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Metin:</strong>
+  <%= @article.text %>
+</p>
+
+<td><%= link_to 'Düzenle', edit_article_path(@article) %></td>  |
+<td><%= link_to 'Geri', articles_path %></td>

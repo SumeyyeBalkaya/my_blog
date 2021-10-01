@@ -1,0 +1,35 @@
+<h1>Yazıyı Düzenle</h1>
+
+<%= form_with(model: @article, local: true) do |form| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%=pluralize(@article.errors.count, "hata") %>
+        bu metinin kaydedilmesine engel oluyor:
+      </h2>
+      <ul>
+        <% @article.errors.full;_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+  <p>
+    <%= form.label :başlık %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :metin %><br>
+    <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.submit :Güncelle%>
+  </p>
+
+<% end %>
+
+<%= link_to 'Geri', articles_path %>
